@@ -1,0 +1,69 @@
+# TODO List API
+
+Manage the tasks from your todo list.
+
+## Tasks [/tasks]
+
+### Retrieve all Tasks [GET]
+
++ Response 200 (application/json)
+
+    [
+        {
+            "id": 1,
+            "title": "Wash the dishes"
+        },
+        {
+            "id": 42,
+            "title": "Find the final answer"
+        }
+    ]
+
+### Create a new Task [POST]
+
++ Request (application/json)
+
+    {
+        "title": "Learn more about API-First"
+    }
+
++ Response 201 (application/json)
+
+    {
+        "id": 43,
+        "title": "Learn more about API-First"
+    }
+
+## Task [/tasks/{task_id}]
+
++ Parameters
+    + task_id (number) - ID of the Task
+
+
+### View a Task details [GET]
+
++ Response 200 (application/json)
+
+    {
+        "id": 1,
+        "title": "Wash the dishes"
+    }
+
+### Update Task [PUT]
+
++ Request (application/json)
+
+    {
+        "title": "Wash part of the dishes"
+    }
+
++ Response 200 (application/json)
+
+    {
+        "id": 1,
+        "title": "Wash part of the dishes"
+    }
+
+### Delete Task [DELETE]
+
++ Response 204
