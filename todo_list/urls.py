@@ -1,10 +1,7 @@
 from django.contrib import admin
-from django.urls import path
-
-from .views import task_view, tasks_view
+from django.urls import include, path
 
 urlpatterns = [
-    path("tasks", tasks_view),
-    path("tasks/<int:pk>", task_view),
+    path("", include("api.urls")),
     path('admin/', admin.site.urls),
 ]

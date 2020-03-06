@@ -9,6 +9,7 @@ yapf = "*"
 
 [packages]
 django = "==3"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.7"
