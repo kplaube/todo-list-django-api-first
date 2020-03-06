@@ -1,0 +1,175 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /tasks/:
+    get:
+      operationId: listTasks
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: integer
+                      readOnly: true
+                    title:
+                      type: string
+                      maxLength: 255
+                  required:
+                  - title
+          description: ''
+    post:
+      operationId: createTask
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: &id001
+              properties:
+                title:
+                  type: string
+                  maxLength: 255
+              required:
+              - title
+          application/x-www-form-urlencoded:
+            schema: *id001
+          multipart/form-data:
+            schema: *id001
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  title:
+                    type: string
+                    maxLength: 255
+                required:
+                - title
+          description: ''
+  /tasks/{id}/:
+    get:
+      operationId: retrieveTask
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this task.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  title:
+                    type: string
+                    maxLength: 255
+                required:
+                - title
+          description: ''
+    put:
+      operationId: updateTask
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this task.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id002
+              properties:
+                title:
+                  type: string
+                  maxLength: 255
+              required:
+              - title
+          application/x-www-form-urlencoded:
+            schema: *id002
+          multipart/form-data:
+            schema: *id002
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  title:
+                    type: string
+                    maxLength: 255
+                required:
+                - title
+          description: ''
+    patch:
+      operationId: partial_updateTask
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this task.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: &id003
+              properties:
+                title:
+                  type: string
+                  maxLength: 255
+          application/x-www-form-urlencoded:
+            schema: *id003
+          multipart/form-data:
+            schema: *id003
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  title:
+                    type: string
+                    maxLength: 255
+                required:
+                - title
+          description: ''
+    delete:
+      operationId: destroyTask
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this task.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
