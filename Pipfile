@@ -12,6 +12,7 @@ django = "==3"
 djangorestframework = "*"
 pyyaml = "==5.3"
 uritemplate = "*"
+drf-yasg = "*"
 
 [requires]
 python_version = "3.7"
